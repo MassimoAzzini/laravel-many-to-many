@@ -2,7 +2,7 @@
 
 @section('content')
 
-    <h1 class="fw-bold">Index Projects</h1>
+    <h1 class="fw-bold">Project whit {{ $technology->name }}</h1>
 
     <a class="btn btn-secondary text-end my-2" href="{{ route('admin.projects.create') }}">New Project</a>
 
@@ -20,20 +20,16 @@
         </thead>
         <tbody>
 
-            @foreach ($projects as $project)
+            @foreach ($technology->projects as $project)
                 <tr>
                     <td>{{ $project->name }}</td>
                     <td>{{ $project->start_project }}</td>
                     <td>{{ $project->short_description }}</td>
 
                     <td>
-                    @forelse ($project->technologies as $technology)
-                    <a href="{{ route('admin.project-technology', $technology) }}" class="badge text-bg-info text-decoration-none">{{ $technology->name }}</a>
-
-                    @empty
-                    -
-                    @endforelse
-
+                    @foreach ($project->technologies as $technology)
+                        <a href="{{ route('admin.project-technology', $technology) }}" class="badge text-bg-info text-decoration-none">{{ $technology->name }}</a>
+                    @endforeach
                     </td>
 
                     <td>{{ $project->type?->name ?? '-' }}</td>
@@ -51,6 +47,5 @@
         </tbody>
     </table>
 
-    {{ $projects->links() }}
 
 @endsection

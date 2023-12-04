@@ -38,6 +38,7 @@ Route::middleware(['auth', 'verified'])
         Route::resource('technologies', TechnologyController::class);
         Route::resource('types', TypeController::class);
         Route::get('type-project', [TypeController::class, 'typeProject'])->name('type-project');
+        Route::get('project-technology/{technology}', [TechnologyController::class, 'projectsTechnologies'])->name('project-technology');
 
     });
 
