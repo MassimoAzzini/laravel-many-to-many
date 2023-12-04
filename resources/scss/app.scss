@@ -1,0 +1,72 @@
+@import '~bootstrap/scss/bootstrap';
+
+body {
+    background-image: url('/public/img/background-dashboard2.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    header {
+        height: 60px;
+    }
+
+    .main-wrapper {
+        height: calc(100vh - 60px);
+
+        .content-container {
+            height: 100%;
+
+            h1 {
+                color: #0200C5;
+            }
+
+            .create-edit-form {
+                label {
+                    color: white;
+                }
+            }
+
+            .accordion-button::after {
+                filter: invert(100%);
+            }
+
+            .cont-dash-technologies,
+            .cont-dash-types {
+               height: 370px;
+            }
+
+            .cont-dash-projects,
+            .cont-dash-technologies,
+            .cont-dash-types h2 {
+                color: #0200C5;
+            }
+
+        }
+
+        aside {
+            width: 250px;
+            height: 100%;
+
+            ul {
+                list-style: none;
+                a {
+                    color: white;
+                    text-decoration: none;
+
+                    &:hover{
+
+                        text-decoration: underline;
+
+                    }
+                }
+            }
+        }
+    }
+
+}
+
+
+
+.cst-bg {
+    background-color: #03282B;
+}
+
