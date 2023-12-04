@@ -11,11 +11,11 @@
                 <thead>
                   <tr>
                     <th scope="col">Name Project</th>
-                    <th scope="col">Start Project</th>
                     <th scope="col">Short Description</th>
+                    <th scope="col">Technology</th>
                     <th scope="col">Type</th>
                     <th scope="col">Link</th>
-                    <th scope="col">Action</th>
+                    <th scope="col" class="text-center">Action</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -23,8 +23,14 @@
                     @foreach ($projects as $project)
                         <tr>
                             <td>{{ $project->name }}</td>
-                            <td>{{ $project->start_project }}</td>
                             <td>{{ $project->short_description }}</td>
+                            <td>
+                                @forelse ($project->technologies as $technology)
+                                <a href="{{ route('admin.project-technology', $technology) }}" class="badge text-bg-info text-decoration-none">{{ $technology->name }}</a>
+                                @empty
+                                -
+                                @endforelse
+                            </td>
                             <td>{{ $project->type->name }}</td>
                             <td><a href="{{ $project->url }}" target="_blank">Project link</a></td>
                             <td>
@@ -89,7 +95,7 @@
 
                         <td class="d-flex justify-content-around">
 
-                            <button onclick="startEdit({{ $technology->id }})" class="btn btn-warning">Edit</button>
+                            <button onclick="startEdit({{ $technology->id }})" class="btn btn-warning me-2">Edit</button>
                             @include('admin.partials.btnDelate', [
                                 'route' => route('admin.technologies.destroy', $technology),
                                 'message' => 'Are you sure you want to delete this technology?',
@@ -136,7 +142,7 @@
 
                             <td class="d-flex justify-content-around">
 
-                                <button onclick="startEdit({{ $type->id }})" class="btn btn-warning">Edit</button>
+                                <button onclick="startEdit({{ $type->id }})" class="btn btn-warning me-2">Edit</button>
                                 @include('admin.partials.btnDelate', [
                                     'route' => route('admin.types.destroy', $type),
                                     'message' => 'Are you sure you want to delete this type?',

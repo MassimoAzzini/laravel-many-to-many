@@ -36,11 +36,11 @@
 
         <div class="col">
             <strong>Technology: </strong>
-            @forelse ($project->technologies as $technology)
-            {{ $technology->name }}
-            @empty
-            -
-            @endforelse
+                @forelse ($project->technologies as $technology)
+                    <a href="{{ route('admin.project-technology', $technology) }}" class="badge text-bg-info text-decoration-none">{{ $technology->name }}</a>
+                @empty
+                -
+                @endforelse
 
         </div>
 

@@ -15,7 +15,7 @@
             <th scope="col">Technology</th>
             <th scope="col">Type</th>
             <th scope="col">Link</th>
-            <th scope="col">Action</th>
+            <th scope="col" class="text-center">Action</th>
           </tr>
         </thead>
         <tbody>
