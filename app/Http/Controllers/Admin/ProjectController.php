@@ -123,6 +123,12 @@ class ProjectController extends Controller
 
         $project->update($form_data);
 
+        if(array_key_exists('technologies', $form_data)){
+            $project->technologies()->sync($form_data['technologies']);
+        }else{
+            $project->technologies()->detach();
+        }
+
         return redirect()->route('admin.projects.show', $project);
 
     }
