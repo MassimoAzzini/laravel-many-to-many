@@ -9,8 +9,12 @@
     <table class="table table-dark">
         <thead>
           <tr>
-            <th scope="col">Name Project</th>
-            <th scope="col">Start Project</th>
+            <th scope="col">
+                <a class="text-decoration-none" href="{{ route('admin.order-by', ['direction'=>$direction, 'column'=>'name']) }}">Name Project</a>
+            </th>
+            <th scope="col">
+                <a class="text-decoration-none" href="{{ route('admin.order-by', ['direction'=>$direction, 'column'=>'start_project']) }}">Start Project</a>
+            </th>
             <th scope="col">Short Description</th>
             <th scope="col">Technology</th>
             <th scope="col">Type</th>

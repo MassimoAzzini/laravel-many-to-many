@@ -31,7 +31,7 @@
                                 -
                                 @endforelse
                             </td>
-                            <td>{{ $project->type->name }}</td>
+                            <td>{{ $project?->type?->name }}</td>
                             <td><a href="{{ $project->url }}" target="_blank">Project link</a></td>
                             <td>
                                 <a class="btn btn-success" href="{{ route('admin.projects.show', $project) }}">Details</a>
